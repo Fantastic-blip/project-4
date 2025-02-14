@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combined Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff77b8, #ff6f91, #ff99cc, #ffb3d9);
+      background-size: 400% 400%;
+      animation: gradientBackground 10s ease infinite;
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    header {
+      background: #ff66b2;
+      padding: 15px;
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    header h1:hover {
+      transform: scale(1.1);
+    }
+
+    .profile h2 {
+      color: #d63384;
+      font-size: 2rem;
+      margin: 15px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .profile h2:hover {
+      color: #ff4d87;
+    }
+
+    .profile p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      animation: fadeInText 1s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .profile h3 {
+      font-size: 1.4rem;
+      color: #b5176d;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+      display: inline-block;
+    }
+
+    ul li {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: #ffe6f0;
+      color: #7a0a39;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    ul li:nth-child(odd) {
+      background-color: #fcd4e0;
+    }
+
+    ul li:hover {
+      background-color: #ff99cc;
+      transform: translateX(10px);
+    }
+
+    ul li::before {
+      content: "💖";
+      margin-right: 8px;
+      animation: bounce 1s ease infinite;
+    }
+
+    footer {
+      font-size: 1rem;
+      color: #8c1c47;
+      margin-top: 30px;
+    }
+
+    footer p {
+      font-weight: bold;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .scroll-top-btn:hover {
+      background-color: #ff4d87;
+      transform: scale(1.2);
+    }
+
+    /* Rain container and effects */
+    .rain-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .rain-item {
+      position: absolute;
+      animation: fall 10s linear infinite;
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -50px;
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    .cupcake {
+      background-image: url('https://www.pngall.com/wp-content/uploads/5/Cupcake-PNG-File.png');
+      left: 10%;
+      animation-duration: 8s;
+      animation-delay: 0s;
+    }
+
+    .chocolate {
+      background-image: url('https://cdn-icons-png.flaticon.com/256/5784/5784085.png');
+      left: 40%;
+      animation-duration: 9s;
+      animation-delay: 2s;
+    }
+
+    .toffee {
+      background-image: url('https://cdn-icons-png.flaticon.com/256/11433/11433297.png');
+      left: 70%;
+      animation-duration: 11s;
+      animation-delay: 4s;
+    }
+
+    /* Hide profile by default */
+    .valentines-profile {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Raining objects -->
+  <div class="rain-container">
+    <div class="rain-item cupcake"></div>
+    <div class="rain-item chocolate"></div>
+    <div class="rain-item toffee"></div>
+    <div class="rain-item cupcake" style="left: 20%; animation-duration: 8s; animation-delay: 1s;"></div>
+    <div class="rain-item chocolate" style="left: 50%; animation-duration: 7s; animation-delay: 3s;"></div>
+    <div class="rain-item toffee" style="left: 80%; animation-duration: 12s; animation-delay: 2s;"></div>
+  </div>
+
+  <!-- Main Page Content -->
+  <div class="container">
+    <header>
+      <h1 onclick="window.scrollTo(0, 0)">💕 hellloooo💻</h1>
+    </header>
+    <section>
+      <h2>Welcome to My Profile Page</h2>
+      <p>Click below to visit my Valentine's Profile</p>
+      <button onclick="showProfile()">Go to Valentine's Profile</button>
+    </section>
+  </div>
+
+  <!-- Valentine's Profile Content (Hidden initially) -->
+  <div class="container valentines-profile" id="profile">
+    <header>
+      <h1 onclick="window.scrollTo(0, 0)">💕 Love and Code 💻</h1>
+    </header>
+
+    <section class="profile">
+      <h2 id="about-me">Hi there, I'm Astha! 😎 </h2>
+      <p>Welcome to my little space on the internet. When I'm not debugging my heart, you can find me solving problems one line of code at a time.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdzGIKnc-J-PlXTqPQg3tictv1vcj_OuKnCw&s" alt="Cute Girl Sticker" class="girl-sticker">
+
+      <h3>Things I Love:</h3>
+      <ul>
+        <li>🍫 Chocolate (I promise, it's sweeter than my code!)</li>
+        <li>📚 Books – from data structures to melodies that turn into memories</li>
+        <li>💡 Building things (like algorithms...and dreams!)</li>
+        <li>🌸 Late-night coding sessions with coffee</li>
+      </ul>
+
+      <h3>Looking for:</h3>
+      <p>Looking for someone to debug my heart. Bonus points if you know the difference between a stack and a queue! A fellow coder, creative thinker, and someone who doesn’t mind my love for recursive algorithms. Let's debug life together! 🌹</p>
+    </section>
+
+    <footer>
+      <p>I specially made it with all my sense and humor using CSS and HTML... just come and fill this profile with JavaScript. 💖</p>
+    </footer>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" onclick="window.scrollTo(0, 0)">↑</button>
+
+  <script>
+    function showProfile() {
+      document.getElementById('profile').style.display = 'block'; // Show profile page
+    }
+  </script>
+
+</body>
+</html>
